@@ -1,0 +1,15 @@
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\bin\Debug\net7.0\RGB.exe
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\bin\Debug\net7.0\RGB.deps.json
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\bin\Debug\net7.0\RGB.runtimeconfig.json
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\bin\Debug\net7.0\RGB.dll
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\bin\Debug\net7.0\RGB.pdb
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\obj\Debug\net7.0\RGB.csproj.AssemblyReference.cache
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\obj\Debug\net7.0\RGB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\obj\Debug\net7.0\RGB.AssemblyInfoInputs.cache
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\obj\Debug\net7.0\RGB.AssemblyInfo.cs
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\obj\Debug\net7.0\RGB.csproj.CoreCompileInputs.cache
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\obj\Debug\net7.0\RGB.dll
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\obj\Debug\net7.0\refint\RGB.dll
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\obj\Debug\net7.0\RGB.pdb
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\obj\Debug\net7.0\RGB.genruntimeconfig.cache
+C:\Users\vfarias\source\repos\AtividadePoo\ColorRGB\ColorRGB\obj\Debug\net7.0\ref\RGB.dll
