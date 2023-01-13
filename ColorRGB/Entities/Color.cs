@@ -35,9 +35,6 @@ namespace RGB.Entities
             get { return new Color(0, 0, 255); }
         }
 
-
-
-
         /*public Color(int identic)
         {
             Red = identic;
@@ -90,11 +87,22 @@ namespace RGB.Entities
             return "#" + redToGray + greenToGray + blueToGray;*/
     
         }
+        public static Color EquivalentGray(Color color)
+        {
+            string colorHex = ConvertDecToHex(color);
+            int redDecimal = Convert.ToInt32(colorHex.Substring(1, 2), 16);
+            int greenDecimal = Convert.ToInt32(colorHex.Substring(3, 2), 16);
+            int blueDecimal = Convert.ToInt32(colorHex.Substring(5, 2), 16);
+            int equivalent = SetLuminosity(redDecimal, greenDecimal, blueDecimal);
+
+            return new Color(equivalent, equivalent, equivalent);
+        }
         public static string ConvertDecToHex(Color color)
         {
-            string redToHex = Convert.ToString(color.Red, 16);
-            string greenToHex = Convert.ToString(color.Green, 16);
-            string blueToHex = Convert.ToString(color.Blue, 16);
+            string redToHex = (color.Red <= 9) ? "0" + Convert.ToString(color.Red, 16) : Convert.ToString(color.Red, 16);
+            string greenToHex = (color.Green <= 9) ? "0" + Convert.ToString(color.Green, 16) : Convert.ToString(color.Green, 16);
+            string blueToHex = (color.Blue <= 9) ? "0" + Convert.ToString(color.Blue, 16) : Convert.ToString(color.Blue, 16);
+
             return "#" + redToHex + greenToHex + blueToHex;
         }
         public string Lighten(string color, double p)
@@ -116,6 +124,13 @@ namespace RGB.Entities
             greenDecimal -= (int)(greenDecimal * p);
             blueDecimal -= (int)(blueDecimal * p);
             return ConvertDecToHex(new Color(redDecimal, greenDecimal, blueDecimal));
+        }
+        public static Color StrToColor(string color)
+        {
+            int redDecimal = Convert.ToInt32(color.Substring(1, 2), 16);
+            int greenDecimal = Convert.ToInt32(color.Substring(3, 2), 16);
+            int blueDecimal = Convert.ToInt32(color.Substring(5, 2), 16);
+            return new Color(redDecimal, greenDecimal, blueDecimal);
         }
 
 
