@@ -14,23 +14,23 @@ namespace RGB.Entities
         public int Green { get; private set; }
         public int Blue { get; private set; }
         public int Luminosity { get; private set; }
-        public Color Black
+        public static Color Black
         {
             get { return new Color(0, 0, 0); }
         }
-        public Color White
+        public static Color White
         {
             get { return new Color(255, 255, 255); }
         }
-        public Color ColorRed
+        public static Color ColorRed
         {
             get { return new Color(255, 0, 0); }
         }
-        public Color ColorGreen
+        public static Color ColorGreen
         {
             get { return new Color(0, 255, 0); }
         }
-        public Color ColorBlue
+        public static Color ColorBlue
         {
             get { return new Color(0, 0, 255); }
         }
@@ -60,17 +60,20 @@ namespace RGB.Entities
         public void SetLuminosity()
         {
             double lum = (Red * 0.3 + Green * 0.59 + Blue * 0.11);
-            Luminosity = (int)lum;
+            Luminosity = (int)Math.Ceiling(lum);
         }
         public static int SetLuminosity(int red, int green, int blue)
         {
             double lum = (red * 0.3 + green * 0.59 + blue * 0.11);
-            return (int)lum;
+            return (int)Math.Ceiling(lum);
         }
         public static bool CompareColor(Color x, Color y)
         {
-            if (x.Red == y.Red && x.Green == y.Green && x.Blue == y.Blue) return true;
-            else return false;
+            //if (x.Red == y.Red && x.Green == y.Green && x.Blue == y.Blue) return true;
+            //else return false;
+
+
+            return (x.Red == y.Red && x.Green == y.Green && x.Blue == y.Blue);
         }
         public static string EquivalentGray(string color)
         {
@@ -103,27 +106,23 @@ namespace RGB.Entities
             string greenToHex = (color.Green <= 9) ? "0" + Convert.ToString(color.Green, 16) : Convert.ToString(color.Green, 16);
             string blueToHex = (color.Blue <= 9) ? "0" + Convert.ToString(color.Blue, 16) : Convert.ToString(color.Blue, 16);
 
-            return "#" + redToHex + greenToHex + blueToHex;
+            return "#" + redToHex.ToUpper() + greenToHex.ToUpper() + blueToHex.ToUpper();
         }
-        public string Lighten(string color, double p)
+        public string Lighten(double p)
         {
-            int redDecimal = Convert.ToInt32(color.Substring(1, 2), 16);
-            int greenDecimal = Convert.ToInt32(color.Substring(3, 2), 16);
-            int blueDecimal = Convert.ToInt32(color.Substring(5, 2), 16);
-            redDecimal += (int)(redDecimal * p);
-            greenDecimal += (int)(greenDecimal * p);
-            blueDecimal += (int)(blueDecimal * p);
-            return ConvertDecToHex(new Color(redDecimal, greenDecimal, blueDecimal));
+
+            this.Red += (int)Math.Ceiling(this.Red * p);
+            this.Green += (int)Math.Ceiling(this.Green * p);
+            this.Blue += (int)Math.Ceiling(this.Blue * p);
+
+            return ConvertDecToHex(new Color(this));
         }
-        public string Darken(string color, double p)
+        public string Darken(double p)
         {
-            int redDecimal = Convert.ToInt32(color.Substring(1, 2), 16);
-            int greenDecimal = Convert.ToInt32(color.Substring(3, 2), 16);
-            int blueDecimal = Convert.ToInt32(color.Substring(5, 2), 16);
-            redDecimal -= (int)(redDecimal * p);
-            greenDecimal -= (int)(greenDecimal * p);
-            blueDecimal -= (int)(blueDecimal * p);
-            return ConvertDecToHex(new Color(redDecimal, greenDecimal, blueDecimal));
+            this.Red -= (int) Math.Ceiling(this.Red * p);
+            this.Green -= (int) Math.Ceiling(this.Green * p);
+            this.Blue -= (int)Math.Ceiling(this.Blue * p);
+            return ConvertDecToHex(new Color(this));
         }
         public static Color StrToColor(string color)
         {

@@ -21,7 +21,7 @@ namespace RGB.Entities
             {
                 for(int w=0; w < Width; w++)
                 {
-                    Pixel[h, w].Color = new Color().White;
+                    Pixel[h, w].Color = Color.White;
                 }
             }
         }
@@ -35,17 +35,17 @@ namespace RGB.Entities
         }
         public bool CompareImages(Image x, Image y)
         {
-            bool compare = false;
             if (x.Height == y.Height && x.Width == y.Width) 
             {
                 for (int h = 0; h < x.Height; h++)
                 {
                     for (int w = 0; w < x.Width; w++)
                     {
-                        compare = (x.Pixel[h,w] == y.Pixel[h,w])? compare=true : compare=false; break;
+                        if (x.Pixel[h, w] != y.Pixel[h, w])
+                            return false;  
                     }
                 }
-                return compare;
+                return true;
             }
             else
             {
@@ -65,24 +65,45 @@ namespace RGB.Entities
         }
         public bool ImageInsideImage(Image x, Image y)
         {
-            for (int h = 0; h < x.Height; h++)
+            int count = 0;
+            int occurrences = 0;
+
+            for (int line = 0; line < x.Height; line++)
             {
-                for (int w = 0; w < x.Width; w++)
+                for (int column = 0; column < x.Width; column++) // Varre A matrix da imagem X
                 {
-                    if (x.Pixel[h,w] == y.Pixel[0, 0])
+                    if (x.Pixel[line, column] == y.Pixel[0, 0]) // Se encontrar o inicio da matriz da imagem Y inicia varredura da mesma
                     {
-                        int yh = 0;
-                        while (yh<y.Height)//Colocar pra procurar uma matriz dentro de outra
+                        int yLine = 0;//1//1
+                        int yColumn = 1;//0//1
+                        while (yLine < y.Height)//Colocar pra procurar uma matriz dentro de outra
                         {
-                            for (int yw = 0; yw < y.Width; yw++)
+                            while (yColumn < y.Width)
                             {
-                                if (x.Pixel[h, w] == y.Pixel[h, yw]) continue;
-                                else break;
+                                if (y.Pixel[yLine, yColumn] == x.Pixel[line + yLine, column + yColumn])
+                                {
+                                    count++;
+                                    yColumn++;
+                                }
+                                else
+                                {
+                                    yColumn = y.Width;
+                                    yLine = y.Height;
+                                    count = 0;
+                                }
                             }
+                            yLine++;
+                            yColumn = 0;
+                        }
+                        if (count == (y.Height * y.Width) - 1)
+                        {
+                            occurrences++;
+                            count = 0;
                         }
                     }
                 }
             }
+            return (occurrences > 0);
         }
     }
 }

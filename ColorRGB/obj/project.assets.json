@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vfarias\\Source\\Repos\\AtividadePoo\\ColorRGB\\RGB.csproj",
+      "projectUniqueName": "C:\\Users\\vfarias\\source\\repos\\Clone Atv Poo\\AtividadePoo\\ColorRGB\\RGB.csproj",
       "projectName": "RGB",
-      "projectPath": "C:\\Users\\vfarias\\Source\\Repos\\AtividadePoo\\ColorRGB\\RGB.csproj",
+      "projectPath": "C:\\Users\\vfarias\\source\\repos\\Clone Atv Poo\\AtividadePoo\\ColorRGB\\RGB.csproj",
       "packagesPath": "C:\\Users\\vfarias\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vfarias\\Source\\Repos\\AtividadePoo\\ColorRGB\\obj\\",
+      "outputPath": "C:\\Users\\vfarias\\source\\repos\\Clone Atv Poo\\AtividadePoo\\ColorRGB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vfarias\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
